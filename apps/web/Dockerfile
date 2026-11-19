@@ -27,7 +27,7 @@ ENV NODE_ENV=production
 WORKDIR /app/apps/web
 RUN bun run build
 
-FROM nginx:1.27-alpine
+FROM nginx:1.30-alpine
 
 COPY --from=builder /app/apps/web/dist /usr/share/nginx/html
 COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
