@@ -51,7 +51,7 @@ services:
       dockerfile: apps/api/Dockerfile
     restart: unless-stopped
     ports:
-      - "${API_PORT:-35467}:3000"
+      - "127.0.0.1:${API_PORT:-35467}:3000"
     environment:
       NODE_ENV: production
       PORT: "3000"
@@ -75,7 +75,7 @@ services:
         VITE_CLERK_PUBLISHABLE_KEY: ${CLERK_PUBLISHABLE_KEY}
     restart: unless-stopped
     ports:
-      - "${WEB_PORT:-35466}:80"
+      - "127.0.0.1:${WEB_PORT:-35466}:80"
     depends_on:
       api:
         condition: service_started
